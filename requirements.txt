@@ -1,10 +1,7 @@
 fastapi
 uvicorn
-scikit-learn
-pandas
-numpy
+jinja2
 joblib
-shap
-matplotlib
-seaborn
-jupyter
+pandas
+scikit-learn
+lightgbm

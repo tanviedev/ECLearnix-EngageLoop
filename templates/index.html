@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EngageLoop – Nature Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0E1719; /* Charcoal */
+            color: #BABA9E; /* Moss */
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6B765C; /* Olive */
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.5em;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #1C2D2A; /* Pine */
+            border: 2px solid #6B765C;
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(107, 118, 92, 0.2);
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+            font-weight: bold;
+            color: #BABA9E;
+        }
+
+        select,
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #3B4A38; /* Forest */
+            border-radius: 8px;
+            background-color: #0E1719;
+            color: #BABA9E;
+            font-size: 1em;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #6B765C;
+        }
+
+        button {
+            background-color: #3B4A38; /* Forest */
+            border: none;
+            color: #F0F0F0;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 12px 20px;
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6B765C;
+            color: #fff;
+        }
+
+        .result-box {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #1C2D2A;
+            border: 2px solid #3B4A38;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(186, 186, 158, 0.15);
+        }
+
+        .result-box h2 {
+            color: #BABA9E;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result-box p {
+            font-size: 1.05em;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .result-box strong {
+            color: #6B765C;
+        }
+
+        @media (max-width: 600px) {
+            form,
+            .result-box {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1> EngageLoop – Predict User Behavior</h1>
+
+    <form action="/predict" method="post">
+        <label>User Type:</label>
+        <select name="User_Type" required>
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Professional">Professional</option>
+            <option value="Entrepreneur">Entrepreneur</option>
+        </select>
+
+        <label>Region:</label>
+        <select name="Region" required>
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+            <option value="Central">Central</option>
+        </select>
+
+        <label>Department:</label>
+        <select name="Department" required>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Arts">Arts</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Polytechnic">Polytechnic</option>
+            <option value="Medical">Medical</option>
+            <option value="Law">Law</option>
+        </select>
+
+        <label>Platform Source:</label>
+        <select name="Platform_Source" required>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="YouTube">YouTube</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Email">Email</option>
+            <option value="ACE Website">ACE Website</option>
+            <option value="Instagram">Instagram</option>
+        </select>
+
+        <div class="checkbox-group">
+            <label><input type="hidden" name="App_Installed" value="0">
+                   <input type="checkbox" name="App_Installed" value="1"> App Installed</label>
+
+            <label><input type="hidden" name="First_Login_Completed" value="0">
+                   <input type="checkbox" name="First_Login_Completed" value="1"> First Login Completed</label>
+
+            <label><input type="hidden" name="Registered_for_Event" value="0">
+                   <input type="checkbox" name="Registered_for_Event" value="1"> Registered for Event</label>
+
+            <label><input type="hidden" name="Course_Completed" value="0">
+                   <input type="checkbox" name="Course_Completed" value="1"> Course Completed</label>
+
+            <label><input type="hidden" name="Newsletter_Subscribed" value="0">
+                   <input type="checkbox" name="Newsletter_Subscribed" value="1"> Newsletter Subscribed</label>
+        </div>
+
+        <label>Time Spent (Minutes):</label>
+        <input type="number" name="Time_Spent_Total_Minutes" step="1" required>
+
+        <label>Days Since Last Activity:</label>
+        <input type="number" name="Days_Since_Last_Activity" step="1" required>
+
+        <button type="submit"> Predict Now</button>
+    </form>
+
+    {% if churn_result is defined and segment_result is defined and type_result is defined %}
+    <div class="result-box">
+        <h2>🧠 Predictions</h2>
+        <p><strong>Churn Risk:</strong> {{ churn_result }}</p>
+        <p><strong>User Segment:</strong> {{ segment_result }}</p>
+        <p><strong>Predicted User Type:</strong> {{ type_result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
