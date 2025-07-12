@@ -1,24 +1,46 @@
-# EngageLoop: User Churn Intelligence API
+# 🚀 EngageLoop – User Intelligence & Churn Prediction App
 
-This FastAPI application uses machine learning models to predict:
-- User types based on interaction history
-- Drop-off likelihood (churn risk)
+**EngageLoop** is an elite-tier, AI-powered web application built using **FastAPI** that predicts user churn risk, segments users by behavior, and analyzes user types — empowering EdTechs, learning platforms, and organizations to engage smarter.
 
-## Project Features
-- Drop-off prediction using LightGBM
-- Clustering of users (KMeans, DBSCAN, Agglomerative)
-- SHAP explainability (in Jupyter)
-- FastAPI backend to serve models
+---
 
-## Getting Started
+## 🧠 Key Features
+
+- 🔍 **Churn Prediction** – Classifies users as “At Risk” or “Engaged”  
+- 🧩 **User Segmentation (KMeans)** – Groups users into data-driven engagement segments  
+- 🧑‍💼 **User Type Classifier** – Predicts likelihood of user persistence based on profile  
+- 📊 **Sleek Dashboard UI** – Styled using a data-intelligent elite-tier dark theme  
+- 🌐 **Web Interface** – Built with FastAPI, HTML + Jinja2 templates  
+- 📦 **Deployed on Render** with live model inference
+
+---
+
+## 🛠️ Tech Stack
+
+- **FastAPI** – Lightning-fast web API framework  
+- **Jinja2** – HTML template rendering  
+- **scikit-learn / LightGBM / joblib** – ML models & serialization  
+- **pandas** – Feature inputs & transformation  
+- **Render** – Deployment platform (or any other like Heroku/Vercel)
+
+---
+
+## 💡 How to Run Locally
 
 ```bash
-# Set up virtual environment
+# 1. Clone the repo
+git clone https://github.com/yourusername/engageloop.git
+cd engageloop
+
+# 2. (Optional) Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 
-# Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# Run the API
+# 4. Run the app
 uvicorn main:app --reload
+```
+Developed by Tanvi Takle
+Inspired by user behavior insights and elegant data design ✨
