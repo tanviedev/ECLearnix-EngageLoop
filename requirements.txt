@@ -5,3 +5,4 @@ joblib
 pandas
 scikit-learn
 lightgbm
+scikit-learn==1.6.1
