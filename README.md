@@ -43,4 +43,5 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 Developed by Tanvi Takle
+
 Inspired by user behavior insights and elegant data design ✨
